@@ -1,17 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import {render} from 'react-dom';
+import {Router, hashHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import store from './store/index';
-
+import routes from './routes';
 import DevTools from './DevTools';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <div>
-      <h1>Inicjalizacja projektu</h1>
-      <DevTools/>
-    </div>
-  </Provider>,
-  document.getElementById('root')
+render(
+    <Provider store={store}>
+        <div>
+            <Router history={hashHistory} routes={routes}/>
+            <DevTools/>
+        </div>
+    </Provider>,
+    document.getElementById('root')
 );
